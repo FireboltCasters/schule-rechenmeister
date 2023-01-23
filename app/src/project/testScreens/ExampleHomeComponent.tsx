@@ -1,6 +1,10 @@
 import React, {FunctionComponent} from "react";
-import {View} from "native-base";
-import {ConfigHolder, Navigation, ThemedMarkdown} from "kitcheningredients";
+import {Text, View} from "native-base";
+import {ConfigHolder, Navigation} from "kitcheningredients";
+import {TouchableOpacity} from "react-native";
+import {SelectAmountPlayersScreen} from "../screens/SelectAmountPlayersScreen";
+import {MyButton} from "../components/MyButton";
+import {MySpacer} from "../components/MySpacer";
 
 export const ExampleHomeComponent: FunctionComponent = (props) => {
 
@@ -8,20 +12,17 @@ export const ExampleHomeComponent: FunctionComponent = (props) => {
         ConfigHolder.instance.setHideDrawer(true, Navigation.DEFAULT_ROUTE_HOME);
     }
 
-  let markdownTextExample = `
-# Welcome to kitcheningredients
-
-This library to create your own app for web, android and ios. It is based on native-base and is connectable to a Directus backend.
-
-More information can be found soon.
-`;
-
-
   return (
-    <View>
-      <ThemedMarkdown>
-        {markdownTextExample}
-      </ThemedMarkdown>
+    <View style={{width: "100%"}}>
+        <View style={{width: "100%", alignItems: "center"}}><Text>{"Wer wird Kopfrechenmeister?"}</Text></View>
+        <MySpacer />
+        <MySpacer />
+        <MySpacer />
+        <MyButton onPress={() => {
+            Navigation.navigateTo(SelectAmountPlayersScreen);
+        }}>
+            <Text>{"Start"}</Text>
+        </MyButton>
     </View>
   );
 }

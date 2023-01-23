@@ -7,3 +7,7 @@ Eine einfache App (Web, Android, iOS) zum Rechnen mit Zahlen.
 - Subtraktion ohne Zehnerübergang
 - Subtraktion mit Zehnerübergang
 - Mix aus Addition und Subtraktion
+
+## Web
+
+https://fireboltcasters.github.io/schule-rechenmeister

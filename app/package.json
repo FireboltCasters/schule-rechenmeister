@@ -2,7 +2,7 @@
 	"private": true,
 	"name": "kitchenbase",
 	"version": "1.0.0",
-	"homepage": "https://fireboltcasters.github.io/KitchenBase/",
+	"homepage": "https://fireboltcasters.github.io/schule-rechenmeister/",
 	"forLocalDevelopmentChangeHomepageTo": "./",
 	"config": {
 		"codepush_ios": "FireboltCasters/RocketMealsDemo-iOS",

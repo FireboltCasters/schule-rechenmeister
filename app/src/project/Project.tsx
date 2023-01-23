@@ -1,7 +1,9 @@
 import React from "react";
 
 import {
-  PluginInterface,
+	BaseTemplate, MenuItem,
+	Navigation,
+	PluginInterface,
 } from "kitcheningredients";
 
 import {SynchedStateKeys} from "./helper/SynchedStateKeys";
@@ -10,6 +12,9 @@ import {MySync} from "./MySync";
 import {MyLoading} from "./MyLoading";
 import {MyRoot} from "./MyRoot";
 import {ExampleHomeComponent} from "./testScreens/ExampleHomeComponent";
+import {ExampleParamScreen} from "./testScreens/ExampleParamScreen";
+import {AdditionWithTenTransition} from "./screens/AdditionWithTenTransition";
+import {SelectAmountPlayersScreen} from "./screens/SelectAmountPlayersScreen";
 
 export default class Project extends PluginInterface{
 
@@ -26,12 +31,31 @@ export default class Project extends PluginInterface{
 	}
 
   async registerRoutes(user, role, permissions){
-	  /**
-	  	  console.log("registerRoutes");
-	  	  console.log(user);
-	  Menu.registerRoute(ExampleScreen, EmptyTemplate, "Example", "example");
-    Menu.registerCommonMenu(new MenuItem("Example", "Example"+user?.role, ExampleScreen))
-     */
+	  let exampleParamRoute = Navigation.routeRegister({
+		  component: ExampleParamScreen,
+		  template: BaseTemplate,
+		  params: {
+			  testParam: 0
+		  },
+	  })
+
+	  let routes = Navigation.routesRegisterMultipleFromComponents(
+		  [
+			  AdditionWithTenTransition,
+			  SelectAmountPlayersScreen,
+		  ],
+		  BaseTemplate
+	  )
+
+	  let docs = new MenuItem({
+		  key: "tasks",
+		  label: "Aufgaben",
+	  });
+
+	  docs.addChildMenuItems(MenuItem.fromRoutes(routes));
+	  docs.addChildMenuItem(MenuItem.fromRoute(exampleParamRoute));
+
+	  Navigation.menuRegister(docs);
 	}
 
 	async initApp() {
@@ -71,7 +95,7 @@ export default class Project extends PluginInterface{
   }
 
   getSyncComponent(): any {
-    return <MySync />
+    //return <MySync />
   }
 
 	getRootComponent(){
