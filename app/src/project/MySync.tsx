@@ -3,11 +3,10 @@ import {Text, View} from "native-base";
 import {BaseTemplate, MenuItem, Navigation} from "kitcheningredients";
 import {ConfigHolder} from "kitcheningredients";
 import {ExampleParamScreen} from "./testScreens/ExampleParamScreen";
-import {ExampleRoutesInformationsScreen} from "./testScreens/ExampleRoutesInformationsScreen";
-import {ExampleTemplateUsageScreen} from "./testScreens/ExampleTemplateUsageScreen";
+import {AdditionWithTenTransition} from "./screens/AdditionWithTenTransition";
 
 export const MySync: FunctionComponent = (props) => {
-  console.log("MySynch");
+  console.log("MySync");
 
   const user = ConfigHolder.instance.getUser()
   console.log(user)
@@ -24,15 +23,14 @@ export const MySync: FunctionComponent = (props) => {
 
     let routes = Navigation.routesRegisterMultipleFromComponents(
       [
-        ExampleTemplateUsageScreen,
-        ExampleRoutesInformationsScreen,
+        AdditionWithTenTransition,
       ],
       BaseTemplate
     )
 
     let docs = new MenuItem({
-      key: "docs",
-      label: "Documentation",
+      key: "tasks",
+      label: "Aufgaben",
     });
 
     docs.addChildMenuItems(MenuItem.fromRoutes(routes));

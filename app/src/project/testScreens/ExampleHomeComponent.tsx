@@ -1,8 +1,12 @@
 import React, {FunctionComponent} from "react";
 import {View} from "native-base";
-import {ThemedMarkdown} from "kitcheningredients";
+import {ConfigHolder, Navigation, ThemedMarkdown} from "kitcheningredients";
 
 export const ExampleHomeComponent: FunctionComponent = (props) => {
+
+    if(!ConfigHolder.instance.isDrawerHidden()){
+        ConfigHolder.instance.setHideDrawer(true, Navigation.DEFAULT_ROUTE_HOME);
+    }
 
   let markdownTextExample = `
 # Welcome to kitcheningredients

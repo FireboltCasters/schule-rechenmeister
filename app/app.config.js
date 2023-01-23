@@ -1,6 +1,6 @@
 function getBackendURL(){
     let fallbackBackendUrl = "http://127.0.0.1/myapp/api";
-    fallbackBackendUrl = "https://nilsbaumgartner.de/rocketmeals/api";
+    fallbackBackendUrl = "";
 
     let backendUrl = process.env.BACKEND_URL
 
@@ -23,7 +23,7 @@ export default {
     "scheme": "myapp",
     "name": "rocket-meals-app",
     "slug": "rocket-meals-app",
-    "version": "1.0.2",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
