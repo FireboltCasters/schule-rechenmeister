@@ -30,8 +30,8 @@ export const SelectGameType: FunctionComponent = (props) => {
     <View style={{width: "100%"}}>
         <View style={{width: "100%", alignItems: "center"}}><Text>{"Wähle dein Spiel"}</Text></View>
         <GridList>
-            {renderGameType("Addition mit ZÜ (todo)", AdditionWithTenTransition)}
-            {renderGameType("Addition ohne ZÜ (todo)", AdditionWithTenTransition)}
+            {renderGameType("Addition einfach (todo)", AdditionWithTenTransition)}
+            {renderGameType("Addition schwer (todo)", AdditionWithTenTransition)}
         </GridList>
     </View>
   );
