@@ -13,8 +13,9 @@ import {MyLoading} from "./MyLoading";
 import {MyRoot} from "./MyRoot";
 import {ExampleHomeComponent} from "./testScreens/ExampleHomeComponent";
 import {ExampleParamScreen} from "./testScreens/ExampleParamScreen";
-import {AdditionWithTenTransition} from "./screens/AdditionWithTenTransition";
+import {AdditionWithTenTransition} from "./screens/games/AdditionWithTenTransition";
 import {SelectAmountPlayersScreen} from "./screens/SelectAmountPlayersScreen";
+import {SelectGameType} from "./screens/SelectGameType";
 
 export default class Project extends PluginInterface{
 
@@ -43,19 +44,29 @@ export default class Project extends PluginInterface{
 		  [
 			  AdditionWithTenTransition,
 			  SelectAmountPlayersScreen,
+			  SelectGameType,
 		  ],
 		  BaseTemplate
 	  )
 
-	  let docs = new MenuItem({
-		  key: "tasks",
-		  label: "Aufgaben",
+	  let homeMenu = new MenuItem({
+		  key: "home",
+		  label: "Start",
+		  command: () => {
+		  	Navigation.navigateTo(Navigation.DEFAULT_ROUTE_HOME);
+		  }
 	  });
 
-	  docs.addChildMenuItems(MenuItem.fromRoutes(routes));
-	  docs.addChildMenuItem(MenuItem.fromRoute(exampleParamRoute));
+	  let aufgabenMenu = new MenuItem({
+		  key: "tasks",
+		  label: "Aufgaben",
+		  command: () => {
+			  Navigation.navigateTo(SelectGameType);
+		  }
+	  });
 
-	  Navigation.menuRegister(docs);
+	  Navigation.menuRegister(homeMenu);
+	  Navigation.menuRegister(aufgabenMenu);
 	}
 
 	async initApp() {
@@ -95,7 +106,7 @@ export default class Project extends PluginInterface{
   }
 
   getSyncComponent(): any {
-    //return <MySync />
+    return <MySync />
   }
 
 	getRootComponent(){

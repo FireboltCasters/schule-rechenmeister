@@ -27,7 +27,10 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
                         setPlayers({...players});
                     }} />
                 </MyButtonView>
-                <MyButton style={{backgroundColor: "red"}}>
+                <MyButton style={{backgroundColor: "red"}} onPress={() => {
+                    delete players[key];
+                    setPlayers({...players});
+                }}>
                     <View style={{flexDirection: "row"}}>
                         <Icon name={"trash-can"} />
                         <Text>{"Löschen"}</Text>
@@ -49,13 +52,25 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
 
     function renderContinue(){
         if(Object.keys(players).length > 0){
-            return (
-                <MyButton onPress={() => {
-                    Navigation.navigateTo(SelectGameType);
-                }}>
-                    <Text>{"Weiter"}</Text>
-                </MyButton>
-            )
+            let allPlayersHaveNames = true;
+            let playerKeys = Object.keys(players);
+            for(let i = 0; i < playerKeys.length; i++){
+                let key = playerKeys[i];
+                if(players[key].name === ""){
+                    allPlayersHaveNames = false;
+                    break;
+                }
+            }
+
+            if(allPlayersHaveNames){
+                return (
+                    <MyButton onPress={() => {
+                        Navigation.navigateTo(SelectGameType);
+                    }}>
+                        <Text>{"Weiter"}</Text>
+                    </MyButton>
+                )
+            }
         }
     }
 
@@ -80,7 +95,6 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
         </MyButton>
         <MySpacer />
         {renderContinue()}
-        <Text>{JSON.stringify(players, null, 2)}</Text>
     </View>
   );
 }

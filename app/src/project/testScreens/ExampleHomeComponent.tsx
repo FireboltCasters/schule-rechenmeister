@@ -1,7 +1,6 @@
 import React, {FunctionComponent} from "react";
 import {Text, View} from "native-base";
 import {ConfigHolder, Navigation} from "kitcheningredients";
-import {TouchableOpacity} from "react-native";
 import {SelectAmountPlayersScreen} from "../screens/SelectAmountPlayersScreen";
 import {MyButton} from "../components/MyButton";
 import {MySpacer} from "../components/MySpacer";
