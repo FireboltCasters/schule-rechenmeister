@@ -16,6 +16,7 @@ import {ExampleParamScreen} from "./testScreens/ExampleParamScreen";
 import {AdditionWithTenTransition} from "./screens/games/AdditionWithTenTransition";
 import {SelectAmountPlayersScreen} from "./screens/SelectAmountPlayersScreen";
 import {SelectGameType} from "./screens/SelectGameType";
+import {AdditionWithoutTenTransition} from "./screens/games/AdditionWithoutTenTransition";
 
 export default class Project extends PluginInterface{
 
@@ -42,6 +43,7 @@ export default class Project extends PluginInterface{
 
 	  let routes = Navigation.routesRegisterMultipleFromComponents(
 		  [
+			  AdditionWithoutTenTransition,
 			  AdditionWithTenTransition,
 			  SelectAmountPlayersScreen,
 			  SelectGameType,
@@ -98,7 +100,7 @@ export default class Project extends PluginInterface{
 	}
 
 	getHomeComponent(): any {
-    return <ExampleHomeComponent />
+    	return <ExampleHomeComponent />
 	}
 
   getLoadingComponent(){

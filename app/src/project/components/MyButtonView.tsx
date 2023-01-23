@@ -6,7 +6,7 @@ import {TouchableOpacity} from "react-native";
 
 export const MyButtonView: FunctionComponent = (props) => {
 
-    const style ={borderRadius: "10px", overflow: "hidden"}
+    const style ={borderRadius: "10px", overflow: "hidden", width: "100%"}
     const propStyle = props?.style || {};
 
     const customColor = propStyle?.backgroundColor;

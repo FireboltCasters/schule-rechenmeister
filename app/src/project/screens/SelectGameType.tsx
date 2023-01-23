@@ -4,6 +4,11 @@ import {GridList, Navigation} from "kitcheningredients";
 import {AdditionWithTenTransition} from "./games/AdditionWithTenTransition";
 import {MyButton} from "../components/MyButton";
 import {MyStates} from "../states/MyStates";
+import {MyFontSizes} from "../components/MyFontSizes";
+import {AdditionWithoutTenTransition} from "./games/AdditionWithoutTenTransition";
+import {AnimationDog} from "../animations/AnimationDog";
+import {AnimationCat} from "../animations/AnimationCat";
+import {MyButtonView} from "../components/MyButtonView";
 
 export const SelectGameType: FunctionComponent = (props) => {
 
@@ -16,22 +21,23 @@ export const SelectGameType: FunctionComponent = (props) => {
     }
 
 
-    function renderGameType(name ,component){
+    function renderGameType(name ,component, description?){
         return (
             <MyButton onPress={() => {
                 Navigation.navigateTo(component);
             }}>
-                <Text>{name}</Text>
+                <Text fontSize={MyFontSizes.HEADING}>{name}</Text>
+                {description}
             </MyButton>
         );
     }
 
   return (
     <View style={{width: "100%"}}>
-        <View style={{width: "100%", alignItems: "center"}}><Text>{"Wähle dein Spiel"}</Text></View>
+        <View style={{width: "100%", alignItems: "center"}}><Text fontSize={MyFontSizes.HEADING}>{"Wähle dein Spiel"}</Text></View>
         <GridList>
-            {renderGameType("Addition einfach (todo)", AdditionWithTenTransition)}
-            {renderGameType("Addition schwer (todo)", AdditionWithTenTransition)}
+            {renderGameType("Addition einfach", AdditionWithoutTenTransition, <AnimationCat />)}
+            {renderGameType("Addition schwer", AdditionWithTenTransition, <AnimationDog />)}
         </GridList>
     </View>
   );

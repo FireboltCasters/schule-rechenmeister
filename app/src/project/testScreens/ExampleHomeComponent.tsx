@@ -4,6 +4,8 @@ import {ConfigHolder, Navigation} from "kitcheningredients";
 import {SelectAmountPlayersScreen} from "../screens/SelectAmountPlayersScreen";
 import {MyButton} from "../components/MyButton";
 import {MySpacer} from "../components/MySpacer";
+import {MyHeading} from "../components/MyHeading";
+import {AnimationKing} from "../animations/AnimationKing";
 
 export const ExampleHomeComponent: FunctionComponent = (props) => {
 
@@ -13,14 +15,12 @@ export const ExampleHomeComponent: FunctionComponent = (props) => {
 
   return (
     <View style={{width: "100%"}}>
-        <View style={{width: "100%", alignItems: "center"}}><Text>{"Wer wird Kopfrechenmeister?"}</Text></View>
-        <MySpacer />
-        <MySpacer />
-        <MySpacer />
+        <View style={{width: "100%", alignItems: "center"}}><MyHeading>{"Wer wird Kopfrechenmeister?"}</MyHeading></View>
+        <AnimationKing />
         <MyButton onPress={() => {
             Navigation.navigateTo(SelectAmountPlayersScreen);
         }}>
-            <Text>{"Start"}</Text>
+            <Text fontSize={"6xl"}>{"Start"}</Text>
         </MyButton>
     </View>
   );

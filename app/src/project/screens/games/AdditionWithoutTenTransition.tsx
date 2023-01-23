@@ -2,7 +2,7 @@ import React, {FunctionComponent, useState} from "react";
 import {View} from "native-base";
 import {TaskTemplate} from "../../components/TaskTemplate";
 
-export const AdditionWithTenTransition: FunctionComponent = (props) => {
+export const AdditionWithoutTenTransition: FunctionComponent = (props) => {
 
     function generateNumberFromTo(min: number, max: number) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -14,12 +14,12 @@ export const AdditionWithTenTransition: FunctionComponent = (props) => {
             solution: 0
         }
 
-        const firstNumberTen = generateNumberFromTo(0, 8); // highest would be 8X
-        const firstNumberOne = generateNumberFromTo(1, 9); // highest would be X9
-        const firstNumber = firstNumberTen * 10 + firstNumberOne; // highest would be 89
-        const secondNumberTen = generateNumberFromTo(0, (8)-firstNumberTen); // highest would be 8X if firstNumberTen is 0
-        let secondNumberOne = generateNumberFromTo(10-firstNumberOne, 9); // highest would be X9
-        const secondNumber = secondNumberTen * 10 + secondNumberOne; // highest would be 89 if firstNumberTen is 0
+        const firstNumberTen = generateNumberFromTo(0, 9);
+        const firstNumberOne = generateNumberFromTo(0, 9);
+        const firstNumber = firstNumberTen * 10 + firstNumberOne;
+        const secondNumberTen = generateNumberFromTo(0, 9-firstNumberTen);
+        let secondNumberOne = generateNumberFromTo(0, 9-firstNumberOne);
+        const secondNumber = secondNumberTen * 10 + secondNumberOne;
 
         taskWithSolution.task = "Was ergibt: "+firstNumber + " + " + secondNumber+" = ";
         taskWithSolution.solution = firstNumber + secondNumber;

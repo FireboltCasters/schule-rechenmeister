@@ -6,6 +6,8 @@ import {MyButton} from "../components/MyButton";
 import {MyButtonView} from "../components/MyButtonView";
 import {SelectGameType} from "./SelectGameType";
 import {MySpacer} from "../components/MySpacer";
+import {MyHeading} from "../components/MyHeading";
+import {MyFontSizes} from "../components/MyFontSizes";
 
 export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
 
@@ -21,17 +23,18 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
         ConfigHolder.instance.setHideDrawer(true, Navigation.DEFAULT_ROUTE_HOME);
     }
 
-    function renderEditPlayer(key: string){
-        let player = players[key];
+    function renderEditPlayer(id: string){
+        let player = players[id];
 
         return (
             <MyButtonView>
                 <MyButtonView>
-                    <Text>{"Spieler "+key}</Text>
-                    <Input
+                    <Text fontSize={MyFontSizes.HEADING}>{"Spieler "+id}</Text>
+                    <Input fontSize={MyFontSizes.BUTTON}
                         getRef={(ref) => {
-                            refs[key] = ref;}
+                            refs[id] = ref;}
                         }
+                           value={player?.name}
                         allowFontScaling={true} style={{width: "100%", height: "100%", backgroundColor: "orange"}} placeholder={"Name"} onChangeText={(newName) => {
                         player.name = newName;
                         setPlayers({...players});
@@ -46,8 +49,8 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
             let output = [];
             let playerKeys = Object.keys(players);
             for(let i = 0; i < playerKeys.length; i++){
-                let key = playerKeys[i];
-                output.push(renderEditPlayer(key));
+                let id = playerKeys[i];
+                output.push(renderEditPlayer(id));
             }
             return output;
         }
@@ -59,8 +62,8 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
             let allPlayersHaveNames = true;
             let playerKeys = Object.keys(players);
             for(let i = 0; i < playerKeys.length; i++){
-                let key = playerKeys[i];
-                if(players[key].name === ""){
+                let id = playerKeys[i];
+                if(players[id].name === ""){
                     allPlayersHaveNames = false;
                     break;
                 }
@@ -71,7 +74,7 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
                     <MyButton onPress={() => {
                         Navigation.navigateTo(SelectGameType);
                     }}>
-                        <Text>{"Weiter"}</Text>
+                        <Text fontSize={MyFontSizes.BUTTON}>{"Weiter"}</Text>
                     </MyButton>
                 )
             }
@@ -85,17 +88,17 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
                 output.push(<MyButton onPress={() => {
                         let newPlayers = {};
                         for(let j = 1; j <= i; j++){
-                            let key = j;
+                            let id = j;
                             let newPlayer = {
-                                key: key,
+                                id: id,
                                 name: "",
                                 score: 0,
                             }
-                            newPlayers[key] = newPlayer;
+                            newPlayers[id] = newPlayer;
                         }
                         setPlayers(newPlayers);
                     }}>
-                        <Text>{i+" Spieler"}</Text>
+                        <Text fontSize={MyFontSizes.BUTTON}>{i+" Spieler"}</Text>
                     </MyButton>
                 );
             }
@@ -108,14 +111,13 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
 
   return (
     <View style={{width: "100%"}}>
-        <View style={{width: "100%", alignItems: "center"}}><Text>{"Anzahl Spieler?"}</Text></View>
+        <View style={{width: "100%", alignItems: "center"}}><MyHeading>{"Spieler"}</MyHeading></View>
         <GridList>
             {content}
         </GridList>
         <MySpacer />
         <MySpacer />
         {renderContinue()}
-        <Text>{JSON.stringify(players, null, 2)}</Text>
     </View>
   );
 }
