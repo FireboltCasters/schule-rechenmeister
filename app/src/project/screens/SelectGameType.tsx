@@ -36,10 +36,18 @@ export const SelectGameType: FunctionComponent = (props) => {
         );
     }
 
+    let defaultBreakpoints = {
+        base: 1,
+        sm: 2,
+        md: 2,
+        lg: 2,
+        xl: 2,
+    }
+
   return (
     <View style={{width: "100%"}}>
         <View style={{width: "100%", alignItems: "center"}}><Text fontSize={MyFontSizes.HEADING}>{"Wähle dein Spiel"}</Text></View>
-        <GridList>
+        <GridList beakpointsColumns={defaultBreakpoints}>
             {renderGameType("Addition einfach", AdditionWithoutTenTransition, <AnimationCat />)}
             {renderGameType("Addition schwer", AdditionWithTenTransition, <AnimationDog />)}
             {renderGameType("Subtraktion einfach", SubtractionWithoutTenTransition, <AnimationPanda />)}
