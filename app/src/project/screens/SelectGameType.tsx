@@ -84,7 +84,6 @@ export const SelectGameType: FunctionComponent = (props) => {
                 {renderGameType("Subtraktion", SubtractionWithoutTenTransition, renderStars(1), COLOR_EASY)}
                 {renderGameType("Subtraktion", SubtractionWithTenTransitionSingleNumber, renderStars(2), COLOR_MEDIUM)}
                 {renderGameType("Subtraktion", SubtractionWithTenTransition, renderStars(3), COLOR_HARD)}
-
             </GridList>
         </ScrollView>
     </View>
