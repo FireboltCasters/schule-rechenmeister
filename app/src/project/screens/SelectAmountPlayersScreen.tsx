@@ -109,10 +109,18 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
 
     let content = noPlayersCreated ? renderSelectAmountPlayers() : renderEditPlayers();
 
+    let defaultBreakpoints = {
+        base: 1,
+        sm: 2,
+        md: 2,
+        lg: 2,
+        xl: 2,
+    }
+
   return (
     <View style={{width: "100%"}}>
         <View style={{width: "100%", alignItems: "center"}}><MyHeading>{"Spieler"}</MyHeading></View>
-        <GridList>
+        <GridList beakpointsColumns={defaultBreakpoints}>
             {content}
         </GridList>
         <MySpacer />
