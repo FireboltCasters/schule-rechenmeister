@@ -17,6 +17,8 @@ import {AdditionWithTenTransition} from "./screens/games/AdditionWithTenTransiti
 import {SelectAmountPlayersScreen} from "./screens/SelectAmountPlayersScreen";
 import {SelectGameType} from "./screens/SelectGameType";
 import {AdditionWithoutTenTransition} from "./screens/games/AdditionWithoutTenTransition";
+import {SubtractionWithoutTenTransition} from "./screens/games/SubtractionWithoutTenTransition";
+import {SubtractionWithTenTransition} from "./screens/games/SubtractionWithTenTransition";
 
 export default class Project extends PluginInterface{
 
@@ -45,6 +47,8 @@ export default class Project extends PluginInterface{
 		  [
 			  AdditionWithoutTenTransition,
 			  AdditionWithTenTransition,
+			  SubtractionWithoutTenTransition,
+			  SubtractionWithTenTransition,
 			  SelectAmountPlayersScreen,
 			  SelectGameType,
 		  ],

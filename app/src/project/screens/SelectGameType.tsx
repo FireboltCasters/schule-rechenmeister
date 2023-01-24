@@ -9,6 +9,10 @@ import {AdditionWithoutTenTransition} from "./games/AdditionWithoutTenTransition
 import {AnimationDog} from "../animations/AnimationDog";
 import {AnimationCat} from "../animations/AnimationCat";
 import {MyButtonView} from "../components/MyButtonView";
+import {SubtractionWithoutTenTransition} from "./games/SubtractionWithoutTenTransition";
+import {SubtractionWithTenTransition} from "./games/SubtractionWithTenTransition";
+import {AnimationPanda} from "../animations/AnimationPanda";
+import {AnimationShark} from "../animations/AnimationShark";
 
 export const SelectGameType: FunctionComponent = (props) => {
 
@@ -38,6 +42,9 @@ export const SelectGameType: FunctionComponent = (props) => {
         <GridList>
             {renderGameType("Addition einfach", AdditionWithoutTenTransition, <AnimationCat />)}
             {renderGameType("Addition schwer", AdditionWithTenTransition, <AnimationDog />)}
+            {renderGameType("Subtraktion einfach", SubtractionWithoutTenTransition, <AnimationPanda />)}
+            {renderGameType("Subtraktion schwer", SubtractionWithTenTransition, <AnimationShark />)}
+
         </GridList>
     </View>
   );

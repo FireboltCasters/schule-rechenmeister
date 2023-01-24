@@ -6,13 +6,16 @@ import {isNaN} from 'lodash';
 import {View} from "react-native";
 
 //https://www.npmjs.com/package/react-rectangle/v/1.2.0
-export default ({ aspectRatio = 1, children, style, ...rest }) => {
+export default ({ aspectRatio = 1, children, style, percentMoveTop, ...rest }) => {
     const multiplier = calculateAspectRatio(aspectRatio);
+
+    const usePercentMoveTop = percentMoveTop || 0;
+    const usePercentMoveTopStyle = usePercentMoveTop ? usePercentMoveTop * multiplier + '%' : 0;
 
     return (
         <View style={{ position: 'relative', ...style }} {...rest}>
             <View style={{ display: 'flex', paddingTop: 100 * multiplier + '%' }} />
-            <View style={{ position: 'absolute', bottom: 0, left: 0, top: 0, right: 0 }}>{children}</View>
+            <View style={{ position: 'absolute', bottom: 0, left: 0, top: usePercentMoveTopStyle, right: 0 }}>{children}</View>
         </View>
     );
 };

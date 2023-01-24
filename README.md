@@ -1,13 +1,24 @@
-#Rechenmeister
+<h2 align="center">
+    Rechenmeister
+</h2>
 
-Eine einfache App (Web, Android, iOS) zum Rechnen mit Zahlen.
+<p align="center">
+    <img src="https://raw.githubusercontent.com/FireboltCasters/schule-rechenmeister/master/githubAssets/logo.png" alt="backup" style="height:100px;"/>
+</p>
 
+### Beschreibung
+
+Eine einfache App (Web, Android, iOS) zum Rechnen mit Zahlen. Schüler können lokal gegeneinander oder alleine spielen. Die App ist für Schüler der 1. bis 4. Klasse geeignet.
+
+### Features
 - Addition ohne Zehnerübergang
 - Addition mit Zehnerübergang
-- Subtraktion ohne Zehnerübergang
-- Subtraktion mit Zehnerübergang
+- Subtraktion ohne Zehnerübergang (todo)
+- Subtraktion mit Zehnerübergang (todo)
 - Mix aus Addition und Subtraktion
 
 ## Web
 
 https://fireboltcasters.github.io/schule-rechenmeister
+
+[![Teste es hier](https://raw.githubusercontent.com/FireboltCasters/schule-rechenmeister/master/githubAssets/screenshot.png)](https://fireboltcasters.github.io/schule-rechenmeister)
