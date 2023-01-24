@@ -8,6 +8,7 @@ import {SelectGameType} from "./SelectGameType";
 import {MySpacer} from "../components/MySpacer";
 import {MyHeading} from "../components/MyHeading";
 import {MyFontSizes} from "../components/MyFontSizes";
+import {GoBackRow} from "../components/GoBackRow";
 
 export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
 
@@ -72,7 +73,7 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
             if(allPlayersHaveNames){
                 return (
                     <MyButton onPress={() => {
-                        Navigation.navigateTo(SelectGameType);
+                        Navigation.navigateTo(SelectGameType, {key: Math.random()});
                     }}>
                         <Text fontSize={MyFontSizes.BUTTON}>{"Weiter"}</Text>
                     </MyButton>
@@ -117,15 +118,20 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
         xl: 2,
     }
 
+    const title = noPlayersCreated ? "Spieler" : "Name";
+
   return (
-    <View style={{width: "100%"}}>
-        <View style={{width: "100%", alignItems: "center"}}><MyHeading>{"Spieler"}</MyHeading></View>
-        <GridList beakpointsColumns={defaultBreakpoints}>
-            {content}
-        </GridList>
-        <MySpacer />
-        <MySpacer />
-        {renderContinue()}
+    <View style={{width: "100%", height: "100%", padding: "20px"}}>
+        <GoBackRow />
+        <View style={{width: "100%", height: "100%", alignItems: "center", justifyContent: "center"}}>
+            <View style={{width: "100%", alignItems: "center"}}><MyHeading>{title}</MyHeading></View>
+            <GridList beakpointsColumns={defaultBreakpoints}>
+                {content}
+            </GridList>
+            <MySpacer />
+            <MySpacer />
+            {renderContinue()}
+        </View>
     </View>
   );
 }

@@ -24,7 +24,7 @@ ConfigHolder.currentpackageJsonLock = currentpackageJsonLock
 ConfigHolder.thirdpartyLicense = thirdpartyLicense
 ConfigHolder.AppConfig = AppConfig
 
-ConfigHolder.displayThemeFloater = true;
+ConfigHolder.displayThemeFloater = false;
 ConfigHolder.showMailLogin = true;
 ConfigHolder.showMailRegister = true;
 ConfigHolder.showExternalLogins = true;

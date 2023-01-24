@@ -6,10 +6,14 @@ import {MySpacer} from "./MySpacer";
 import {PlayerStats} from "./PlayerStats";
 import {MyButton} from "./MyButton";
 import {MyFontSizes} from "./MyFontSizes";
-import {GridList, Icon} from "kitcheningredients";
+import {GridList, Icon, MyThemedBox, Navigation} from "kitcheningredients";
 import {MyButtonView} from "./MyButtonView";
 import {AnimationCorrect} from "../animations/AnimationCorrect";
 import {AnimationWrong} from "../animations/AnimationWrong";
+import {SelectGameType} from "../screens/SelectGameType";
+import {GoBackRow} from "./GoBackRow";
+import {GoHome} from "./GoHome";
+import {GoEndGame} from "./GoEndGame";
 
 export const TaskTemplate: FunctionComponent = (props) => {
 
@@ -35,13 +39,35 @@ export const TaskTemplate: FunctionComponent = (props) => {
     const [input, setInput] = useState("");
 
     const [currentPlayer, setCurrentPlayer, setNextCurrentPlayer] = MyStates.useCurrentPlayer();
+    const currentPlayerName = currentPlayer?.name;
+
     const [players, setPlayers] = MyStates.usePlayers();
 
+    function renderPlayerName(){
+        return(
+            <View style={{width: "100%", alignItems: "center", justifyContent: "center", paddingBottom: "5px"}}>
+                <View style={{borderRadius: "10px", overflow: "hidden"}}>
+                    <MyThemedBox _shadeLevel={3}>
+                        <View style={{paddingHorizontal: 20}}>
+                            <Text fontSize={MyFontSizes.HEADING}>{currentPlayerName+":"}</Text>
+                        </View>
+                    </MyThemedBox>
+                </View>
+            </View>
+        )
+    }
+
     function renderTask(){
+        const COLOR_TASK = "#fff2cc";
+
         return (
-            <View style={{width: "100%", flexDirection: "row", alignItems: "center"}}>
-                <View style={{width: "70%", alignItems: "center"}}><Text fontSize={"6xl"}>{"Was ergibt: "+task+" = "}</Text></View>
-                <View style={{width: "30%", alignItems: "center"}}><MyButtonView><Text fontSize={"6xl"}>{input || " "}</Text></MyButtonView></View>
+            <View style={{width: "100%", flexDirection: "row", alignItems: "center", backgroundColor: COLOR_TASK, paddingHorizontal: "30px", borderRadius: "20px"}}>
+                <View style={{width: "100%", alignItems: "center", justifyContent: "center", flexDirection: "row"}}>
+                    <Text fontSize={"6xl"} bold={true}>{task+" = "}</Text>
+                    <View style={{paddingLeft: 10, width: "20%", paddingVertical: 10}}>
+                        <MyButtonView><Text fontSize={"6xl"}>{input || " "}</Text></MyButtonView>
+                    </View>
+                </View>
             </View>
         )
     }
@@ -56,8 +82,9 @@ export const TaskTemplate: FunctionComponent = (props) => {
         )
 
         return (
-            <View style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", alignItems: "center", justifyContent: "center"}}>
+            <View style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", alignItems: "center", justifyContent: "center", padding: "20px"}}>
                 <View style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "white", opacity: 0.95}}></View>
+                <View style={{width: "100%", height: "200px"}} />
                 {correctSolutionView}
                 {animationComponent}
             </View>
@@ -131,15 +158,15 @@ export const TaskTemplate: FunctionComponent = (props) => {
         return(
             <View style={{width: "100%"}}>
                 <GridList beakpointsColumns={defaultBreakpoints}>
+                    <MyButton style={{borderColor: "green", borderWidth: 3}} onPress={() => {
+                        handleConfirm();
+                    }}>
+                        <Icon size={MyFontSizes.BUTTON} name={"check"} />
+                    </MyButton>
                     <MyButton style={{borderColor: "red", borderWidth: 3}} onPress={() => {
                         setInput("");
                     }}>
                         <Icon size={MyFontSizes.BUTTON} name={"trash-can"} />
-                    </MyButton>
-                    <MyButton onPress={() => {
-                        handleConfirm();
-                    }}>
-                        <Icon size={MyFontSizes.BUTTON} name={"check"} />
                     </MyButton>
                 </GridList>
             </View>
@@ -164,27 +191,32 @@ export const TaskTemplate: FunctionComponent = (props) => {
     useEffect(() => {
         // wait 3 seconds then hide animation
         if(showAnimation !== "none"){
+            const animationCorrect = showAnimation === ANIMATION_CORRECT;
+            const timeForCorrectAnimation = 1800;
+            const timeForWrongAnimation = 3000;
+            const timeout = animationCorrect ? timeForCorrectAnimation : timeForWrongAnimation;
+
             setTimeout(() => {
                     setShowAnimation("none");
                     setCurrentTaskWithSolution(useGenerateTaskFun());
                     setInput("");
                     setNextCurrentPlayer();
-                }
-                , 1800);
+                }, timeout);
         }
     }, [showAnimation])
 
   return (
       <>
-          <View style={{width: "100%"}}>
-              <CurrentPlayerName />
-              <MySpacer />
+          <View style={{width: "100%", padding: "20px"}}>
+              <GoEndGame />
+              {renderPlayerName()}
               {renderTask()}
+              <View style={{height: "10px"}} />
               {renderInputRow()}
-              <MySpacer />
+              <View style={{height: "10px"}} />
               <PlayerStats />
+              {renderAnimation()}
           </View>
-          {renderAnimation()}
       </>
   );
 }

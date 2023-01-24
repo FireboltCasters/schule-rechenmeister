@@ -5,7 +5,7 @@ export class MyStates{
 
     static useDemo(){
         const [demo, setDemo] = useSynchedJSONState(SynchedStateKeys.DEMO);
-        let usedDemo = false;
+        let usedDemo = true;
         return [usedDemo, setDemo];
     }
 
@@ -18,12 +18,22 @@ export class MyStates{
                 1: {
                     id: 1,
                     name: "Nils",
-                    score: 0,
+                    score: 10,
                 },
                 2: {
                     id: 2,
-                    name: "Max",
-                    score: 0,
+                    name: "Julian",
+                    score: 5,
+                },
+                3: {
+                    id: 3,
+                    name: "Ilka",
+                    score: 85,
+                },
+                4: {
+                    id: 4,
+                    name: "Kim",
+                    score: 1,
                 }
             }
         }

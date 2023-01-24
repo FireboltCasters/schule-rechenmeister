@@ -8,11 +8,7 @@ import Rectangle from "./Rectangle";
 export const AnimationKing = ({children,...props}: any) => {
 
 	const noFoundWidths = {
-		base: "70%",
-		sm: "30%",
-		md: Layout.WIDTH_MD*0.3,
-		lg: Layout.WIDTH_LG*0.3,
-		xl: Layout.WIDTH_XL*0.3
+		base: "100%",
 	}
 	const noFoundWidth = useBreakpointValue(noFoundWidths);
 

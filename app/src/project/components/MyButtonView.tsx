@@ -12,12 +12,12 @@ export const MyButtonView: FunctionComponent = (props) => {
     const customColor = propStyle?.backgroundColor;
 
     const content = customColor ? (
-        <View style={{padding: "20px", justifyContent: "center", alignItems: "center"}}>
+        <View style={{padding: "5px", justifyContent: "center", alignItems: "center"}}>
             {props.children}
         </View>
     ) : (
         <MyThemedBox _shadeLevel={3}>
-            <View style={{padding: "20px", justifyContent: "center", alignItems: "center"}}>
+            <View style={{padding: "5px", justifyContent: "center", alignItems: "center"}}>
                 {props.children}
             </View>
         </MyThemedBox>

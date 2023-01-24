@@ -1,7 +1,7 @@
 import React from "react";
 
 import {
-	BaseTemplate, MenuItem,
+	BaseTemplate, MenuItem, EmptyTemplate,
 	Navigation,
 	PluginInterface,
 } from "kitcheningredients";
@@ -19,6 +19,9 @@ import {SelectGameType} from "./screens/SelectGameType";
 import {AdditionWithoutTenTransition} from "./screens/games/AdditionWithoutTenTransition";
 import {SubtractionWithoutTenTransition} from "./screens/games/SubtractionWithoutTenTransition";
 import {SubtractionWithTenTransition} from "./screens/games/SubtractionWithTenTransition";
+import {AdditionWithTenTransitionSingleNumber} from "./screens/games/AdditionWithTenTransitionSingleNumber";
+import {SubtractionWithTenTransitionSingleNumber} from "./screens/games/SubtractionWithTenTransitionSingleNumber";
+import {PointOverview} from "./screens/PointOverview";
 
 export default class Project extends PluginInterface{
 
@@ -46,20 +49,23 @@ export default class Project extends PluginInterface{
 	  let routes = Navigation.routesRegisterMultipleFromComponents(
 		  [
 			  AdditionWithoutTenTransition,
+			  AdditionWithTenTransitionSingleNumber,
 			  AdditionWithTenTransition,
 			  SubtractionWithoutTenTransition,
+			  SubtractionWithTenTransitionSingleNumber,
 			  SubtractionWithTenTransition,
 			  SelectAmountPlayersScreen,
+			  PointOverview,
 			  SelectGameType,
 		  ],
-		  BaseTemplate
+		  EmptyTemplate
 	  )
 
 	  let homeMenu = new MenuItem({
 		  key: "home",
 		  label: "Start",
 		  command: () => {
-		  	Navigation.navigateTo(Navigation.DEFAULT_ROUTE_HOME);
+		  	Navigation.navigateTo(Navigation.DEFAULT_ROUTE_HOME, {key: Math.random()});
 		  }
 	  });
 
@@ -67,7 +73,7 @@ export default class Project extends PluginInterface{
 		  key: "tasks",
 		  label: "Aufgaben",
 		  command: () => {
-			  Navigation.navigateTo(SelectGameType);
+			  Navigation.navigateTo(SelectGameType, {key: Math.random()});
 		  }
 	  });
 
@@ -104,6 +110,7 @@ export default class Project extends PluginInterface{
 	}
 
 	getHomeComponent(): any {
+//		return <PointOverview />
     	return <ExampleHomeComponent />
 	}
 
