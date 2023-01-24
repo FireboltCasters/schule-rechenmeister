@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/schule-rechenmeister/static/js/app.5655eaa9.chunk.js",
-    "app.js.map": "/schule-rechenmeister/static/js/app.5655eaa9.chunk.js.map",
+    "app.js": "/schule-rechenmeister/static/js/app.2f67de90.chunk.js",
+    "app.js.map": "/schule-rechenmeister/static/js/app.2f67de90.chunk.js.map",
     "runtime~app.js": "/schule-rechenmeister/static/js/runtime~app.4fc2c8ef.js",
     "runtime~app.js.map": "/schule-rechenmeister/static/js/runtime~app.4fc2c8ef.js.map",
-    "static/js/2.a76f17c4.chunk.js": "/schule-rechenmeister/static/js/2.a76f17c4.chunk.js",
-    "static/js/2.a76f17c4.chunk.js.map": "/schule-rechenmeister/static/js/2.a76f17c4.chunk.js.map",
+    "static/js/2.ada8b4f0.chunk.js": "/schule-rechenmeister/static/js/2.ada8b4f0.chunk.js",
+    "static/js/2.ada8b4f0.chunk.js.map": "/schule-rechenmeister/static/js/2.ada8b4f0.chunk.js.map",
     "fonts/AntDesign.ttf": "/schule-rechenmeister/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/schule-rechenmeister/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/schule-rechenmeister/./fonts/Feather.ttf",
@@ -26,7 +26,7 @@
   },
   "entrypoints": [
     "static/js/runtime~app.4fc2c8ef.js",
-    "static/js/2.a76f17c4.chunk.js",
-    "static/js/app.5655eaa9.chunk.js"
+    "static/js/2.ada8b4f0.chunk.js",
+    "static/js/app.2f67de90.chunk.js"
   ]
 }
