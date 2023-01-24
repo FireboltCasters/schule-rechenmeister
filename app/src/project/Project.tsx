@@ -26,6 +26,13 @@ import {SelectGameType} from "./screens/games/SelectGameType";
 import {MixWithoutTenTransition} from "./screens/games/additionAndSubtraction/MixWithoutTenTransition";
 import {MixWithTenTransition} from "./screens/games/additionAndSubtraction/MixWithTenTransition";
 import {MixWithTenTransitionSingleNumber} from "./screens/games/additionAndSubtraction/MixWithTenTransitionSingleNumber";
+import {SelectGameLitle1x1GameType} from "./screens/games/litle1x1/SelectGameLitle1x1GameType";
+import {MultiplicationCore} from "./screens/games/litle1x1/MultiplicationCore";
+import {MultiplicationAll} from "./screens/games/litle1x1/MultiplicationAll";
+import {DivisionCore} from "./screens/games/litle1x1/DivisionCore";
+import {DivisionAll} from "./screens/games/litle1x1/DivisionAll";
+import {MultiplicationDivisionMixCore} from "./screens/games/litle1x1/MultiplicationDivisionMixCore";
+import {MultiplicationDivisionMixAll} from "./screens/games/litle1x1/MultiplicationDivisionMixAll";
 
 export default class Project extends PluginInterface{
 
@@ -52,6 +59,10 @@ export default class Project extends PluginInterface{
 
 	  let routes = Navigation.routesRegisterMultipleFromComponents(
 		  [
+			  SelectAmountPlayersScreen,
+			  PointOverview,
+			  SelectGameType,
+			  SelectGameAdditionAndSubtractionGameType,
 			  AdditionWithoutTenTransition,
 			  AdditionWithTenTransitionSingleNumber,
 			  AdditionWithTenTransition,
@@ -61,11 +72,13 @@ export default class Project extends PluginInterface{
 			  MixWithoutTenTransition,
 			  MixWithTenTransitionSingleNumber,
 			  MixWithTenTransition,
-			  SelectGameAdditionAndSubtractionGameType,
-			  SubtractionWithTenTransition,
-			  SelectGameType,
-			  SelectAmountPlayersScreen,
-			  PointOverview,
+			  SelectGameLitle1x1GameType,
+			  MultiplicationCore,
+			  MultiplicationAll,
+			  DivisionCore,
+			  DivisionAll,
+			  MultiplicationDivisionMixCore,
+			  MultiplicationDivisionMixAll
 		  ],
 		  EmptyTemplate
 	  )

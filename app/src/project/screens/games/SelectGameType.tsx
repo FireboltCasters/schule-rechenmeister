@@ -6,6 +6,7 @@ import {MyFontSizes} from "../../components/MyFontSizes";
 import {GoBackRow} from "../../components/GoBackRow";
 import {SelectGameAdditionAndSubtractionGameType} from "./additionAndSubtraction/SelectGameAdditionAndSubtractionGameType";
 import {MyButtonView} from "../../components/MyButtonView";
+import {SelectGameLitle1x1GameType} from "./litle1x1/SelectGameLitle1x1GameType";
 
 export const SelectGameType: FunctionComponent = (props) => {
 
@@ -40,7 +41,7 @@ export const SelectGameType: FunctionComponent = (props) => {
             <GridList beakpointsColumns={defaultBreakpoints} paddingVertical={"8%"} >
                 {renderGameType("Rechnen bis 20", SelectGameAdditionAndSubtractionGameType, {max: 20})}
                 {renderGameType("Rechnen bis 100", SelectGameAdditionAndSubtractionGameType, {max: 100})}
-                {renderGameType("Das kleine 1x1 (todo)", SelectGameAdditionAndSubtractionGameType)}
+                {renderGameType("Das kleine 1x1", SelectGameLitle1x1GameType)}
             </GridList>
         </ScrollView>
     </View>
