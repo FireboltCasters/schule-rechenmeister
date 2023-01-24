@@ -14,11 +14,14 @@ import {SelectGameType} from "../screens/SelectGameType";
 import {GoBackRow} from "./GoBackRow";
 import {GoHome} from "./GoHome";
 import {GoEndGame} from "./GoEndGame";
+import {AnimationDonkey} from "../animations/AnimationDonkey";
 
 export const TaskTemplate: FunctionComponent = (props) => {
 
     const ANIMATION_CORRECT = "correct";
     const ANIMATION_WRONG = "wrong";
+    const ANIMATION_DONKEY = "donkey";
+    const ANIMATION_DONKEY_INPUT_VALUE = 7353;
 
     const defaultGenerateTask = () => {
         return {
@@ -72,14 +75,17 @@ export const TaskTemplate: FunctionComponent = (props) => {
         )
     }
 
-    function renderAnimationOverlay(animationComponent){
-        const correctSolutionView = (
+    function renderAnimationOverlay(animationComponent, hideSolution?){
+        let correctSolutionView = (
             <View>
                 <MyButtonView>
                     <Text fontSize={"6xl"}>{task+" = "+solution}</Text>
                 </MyButtonView>
             </View>
         )
+        if(hideSolution){
+            correctSolutionView = null;
+        }
 
         return (
             <View style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", alignItems: "center", justifyContent: "center", padding: "20px"}}>
@@ -92,6 +98,13 @@ export const TaskTemplate: FunctionComponent = (props) => {
     }
 
     function renderAnimation(){
+        if(showAnimation === ANIMATION_DONKEY){
+            return (
+                renderAnimationOverlay(
+                    <AnimationDonkey />, true
+                )
+            )
+        }
         if(showAnimation === ANIMATION_CORRECT){
             return (
                 renderAnimationOverlay(
@@ -141,6 +154,13 @@ export const TaskTemplate: FunctionComponent = (props) => {
 
     function handleConfirm(){
         let asNumber = parseInt(input);
+
+        if(asNumber === ANIMATION_DONKEY_INPUT_VALUE){
+            setShowAnimation(ANIMATION_DONKEY);
+            return;
+        }
+
+
         const isCorrect = asNumber === solution;
         if(isCorrect){
             currentPlayer.score = parseInt(currentPlayer.score) + 1;
