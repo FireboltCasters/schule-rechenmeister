@@ -4,11 +4,11 @@ import {ConfigHolder, GridList, Icon, Navigation} from "kitcheningredients";
 import {MyStates} from "../states/MyStates";
 import {MyButton} from "../components/MyButton";
 import {MyButtonView} from "../components/MyButtonView";
-import {SelectGameType} from "./SelectGameType";
 import {MySpacer} from "../components/MySpacer";
 import {MyHeading} from "../components/MyHeading";
 import {MyFontSizes} from "../components/MyFontSizes";
 import {GoBackRow} from "../components/GoBackRow";
+import {SelectGameType} from "./games/SelectGameType";
 
 export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
 

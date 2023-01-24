@@ -10,7 +10,7 @@ import {GridList, Icon, MyThemedBox, Navigation} from "kitcheningredients";
 import {MyButtonView} from "./MyButtonView";
 import {AnimationCorrect} from "../animations/AnimationCorrect";
 import {AnimationWrong} from "../animations/AnimationWrong";
-import {SelectGameType} from "../screens/SelectGameType";
+import {SelectGameAdditionGameType} from "../screens/SelectGameType";
 
 export const GoHome: FunctionComponent = (props) => {
 

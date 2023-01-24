@@ -13,15 +13,19 @@ import {MyLoading} from "./MyLoading";
 import {MyRoot} from "./MyRoot";
 import {ExampleHomeComponent} from "./testScreens/ExampleHomeComponent";
 import {ExampleParamScreen} from "./testScreens/ExampleParamScreen";
-import {AdditionWithTenTransition} from "./screens/games/AdditionWithTenTransition";
+import {AdditionWithTenTransition} from "./screens/games/additionAndSubtraction/AdditionWithTenTransition";
 import {SelectAmountPlayersScreen} from "./screens/SelectAmountPlayersScreen";
-import {SelectGameType} from "./screens/SelectGameType";
-import {AdditionWithoutTenTransition} from "./screens/games/AdditionWithoutTenTransition";
-import {SubtractionWithoutTenTransition} from "./screens/games/SubtractionWithoutTenTransition";
-import {SubtractionWithTenTransition} from "./screens/games/SubtractionWithTenTransition";
-import {AdditionWithTenTransitionSingleNumber} from "./screens/games/AdditionWithTenTransitionSingleNumber";
-import {SubtractionWithTenTransitionSingleNumber} from "./screens/games/SubtractionWithTenTransitionSingleNumber";
+import {SelectGameAdditionAndSubtractionGameType} from "./screens/games/additionAndSubtraction/SelectGameAdditionAndSubtractionGameType";
+import {AdditionWithoutTenTransition} from "./screens/games/additionAndSubtraction/AdditionWithoutTenTransition";
+import {SubtractionWithoutTenTransition} from "./screens/games/additionAndSubtraction/SubtractionWithoutTenTransition";
+import {SubtractionWithTenTransition} from "./screens/games/additionAndSubtraction/SubtractionWithTenTransition";
+import {AdditionWithTenTransitionSingleNumber} from "./screens/games/additionAndSubtraction/AdditionWithTenTransitionSingleNumber";
+import {SubtractionWithTenTransitionSingleNumber} from "./screens/games/additionAndSubtraction/SubtractionWithTenTransitionSingleNumber";
 import {PointOverview} from "./screens/PointOverview";
+import {SelectGameType} from "./screens/games/SelectGameType";
+import {MixWithoutTenTransition} from "./screens/games/additionAndSubtraction/MixWithoutTenTransition";
+import {MixWithTenTransition} from "./screens/games/additionAndSubtraction/MixWithTenTransition";
+import {MixWithTenTransitionSingleNumber} from "./screens/games/additionAndSubtraction/MixWithTenTransitionSingleNumber";
 
 export default class Project extends PluginInterface{
 
@@ -54,9 +58,14 @@ export default class Project extends PluginInterface{
 			  SubtractionWithoutTenTransition,
 			  SubtractionWithTenTransitionSingleNumber,
 			  SubtractionWithTenTransition,
+			  MixWithoutTenTransition,
+			  MixWithTenTransitionSingleNumber,
+			  MixWithTenTransition,
+			  SelectGameAdditionAndSubtractionGameType,
+			  SubtractionWithTenTransition,
+			  SelectGameType,
 			  SelectAmountPlayersScreen,
 			  PointOverview,
-			  SelectGameType,
 		  ],
 		  EmptyTemplate
 	  )
@@ -73,7 +82,7 @@ export default class Project extends PluginInterface{
 		  key: "tasks",
 		  label: "Aufgaben",
 		  command: () => {
-			  Navigation.navigateTo(SelectGameType, {key: Math.random()});
+			  Navigation.navigateTo(SelectGameAdditionGameType, {key: Math.random()});
 		  }
 	  });
 
