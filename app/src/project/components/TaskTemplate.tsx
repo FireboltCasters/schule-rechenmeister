@@ -154,19 +154,19 @@ export const TaskTemplate: FunctionComponent = (props) => {
 
     function handleConfirm(){
         let asNumber = parseInt(input);
-
-        if(asNumber === ANIMATION_DONKEY_INPUT_VALUE){
-            setShowAnimation(ANIMATION_DONKEY);
-            return;
-        }
-
-
         const isCorrect = asNumber === solution;
         if(isCorrect){
             currentPlayer.score = parseInt(currentPlayer.score) + 1;
             players[currentPlayer.id] = currentPlayer;
             setPlayers(players);
         }
+        if(!isCorrect){
+            if(asNumber === ANIMATION_DONKEY_INPUT_VALUE){
+                setShowAnimation(ANIMATION_DONKEY);
+                return;
+            }
+        }
+
         setShowAnimation(isCorrect ? ANIMATION_CORRECT : ANIMATION_WRONG);
     }
 
