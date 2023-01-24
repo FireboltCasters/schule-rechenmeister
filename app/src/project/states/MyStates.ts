@@ -5,7 +5,7 @@ export class MyStates{
 
     static useDemo(){
         const [demo, setDemo] = useSynchedJSONState(SynchedStateKeys.DEMO);
-        let usedDemo = true;
+        let usedDemo = false;
         return [usedDemo, setDemo];
     }
 

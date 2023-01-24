@@ -21,7 +21,7 @@ export const AdditionWithTenTransition: FunctionComponent = (props) => {
         let secondNumberOne = generateNumberFromTo(10-firstNumberOne, 9); // highest would be X9
         const secondNumber = secondNumberTen * 10 + secondNumberOne; // highest would be 89 if firstNumberTen is 0
 
-        taskWithSolution.task = "Was ergibt: "+firstNumber + " + " + secondNumber+" = ";
+        taskWithSolution.task = firstNumber + " + " + secondNumber;
         taskWithSolution.solution = firstNumber + secondNumber;
 
         return taskWithSolution;

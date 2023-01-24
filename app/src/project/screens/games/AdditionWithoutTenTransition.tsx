@@ -21,7 +21,7 @@ export const AdditionWithoutTenTransition: FunctionComponent = (props) => {
         let secondNumberOne = generateNumberFromTo(0, 9-firstNumberOne);
         const secondNumber = secondNumberTen * 10 + secondNumberOne;
 
-        taskWithSolution.task = "Was ergibt: "+firstNumber + " + " + secondNumber+" = ";
+        taskWithSolution.task = firstNumber + " + " + secondNumber;
         taskWithSolution.solution = firstNumber + secondNumber;
 
         return taskWithSolution;
