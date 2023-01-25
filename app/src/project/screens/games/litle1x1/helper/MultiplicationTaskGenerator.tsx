@@ -18,7 +18,7 @@ export class MultiplicationTaskGenerator {
         let multNumber = this.generateNumberFromTo(1, 9);
         let solution = coreRow * multNumber;
 
-        taskWithSolution.task = coreRow + " * " + multNumber;
+        taskWithSolution.task = coreRow + " ⋅ " + multNumber;
         taskWithSolution.solution = solution;
 
         return taskWithSolution;
