@@ -31,7 +31,7 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
             <MyButtonView>
                 <MyButtonView>
                     <Text fontSize={MyFontSizes.HEADING}>{"Spieler "+id}</Text>
-                    <Input fontSize={MyFontSizes.BUTTON}
+                    <Input fontSize={MyFontSizes.HEADING}
                         getRef={(ref) => {
                             refs[id] = ref;}
                         }
@@ -70,15 +70,17 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
                 }
             }
 
-            if(allPlayersHaveNames){
+            const continueStyle = allPlayersHaveNames ? {} : {opacity: 0};
+
                 return (
-                    <MyButton onPress={() => {
-                        Navigation.navigateTo(SelectGameType, {key: Math.random()});
-                    }}>
-                        <Text fontSize={MyFontSizes.BUTTON}>{"Weiter"}</Text>
-                    </MyButton>
+                    <View style={continueStyle}>
+                        <MyButton onPress={() => {
+                            Navigation.navigateTo(SelectGameType, {key: Math.random()});
+                        }}>
+                            <Text fontSize={MyFontSizes.BUTTON}>{"Weiter"}</Text>
+                        </MyButton>
+                    </View>
                 )
-            }
         }
     }
 
@@ -123,12 +125,11 @@ export const SelectAmountPlayersScreen: FunctionComponent = (props) => {
   return (
     <View style={{width: "100%", height: "100%", padding: "20px"}}>
         <GoBackRow />
-        <View style={{width: "100%", height: "100%", alignItems: "center", justifyContent: "center"}}>
+        <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
             <View style={{width: "100%", alignItems: "center"}}><MyHeading>{title}</MyHeading></View>
             <GridList beakpointsColumns={defaultBreakpoints}>
                 {content}
             </GridList>
-            <MySpacer />
             <MySpacer />
             {renderContinue()}
         </View>

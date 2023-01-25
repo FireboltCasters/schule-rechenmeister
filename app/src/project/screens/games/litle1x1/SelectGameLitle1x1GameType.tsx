@@ -43,16 +43,12 @@ export const SelectGameLitle1x1GameType: FunctionComponent = (props) => {
         base: 2,
     }
 
-    function renderStars(amount: number){
-
-        let difficutlies = ["einfach", "mittel", "schwer"];
+    function renderStars(amount: number, difficulty: string){
 
         let stars = [];
         for(let i = 0; i < amount; i++){
             stars.push(<Icon size={MyFontSizes.HEADING} name="star" color="#FFD700" />);
         }
-
-        let difficulty = difficutlies[amount - 1] || difficutlies[difficutlies.length - 1];
 
         return (
             <View style={{alignItems: "center", justifyContent: "center"}}>
@@ -66,12 +62,12 @@ export const SelectGameLitle1x1GameType: FunctionComponent = (props) => {
 
     function renderTasks(){
         let output = [];
-        output.push(renderGameType("Multiplikation", "Kernaufgaben",  MultiplicationCore, renderStars(1), COLOR_EASY))
-        output.push(renderGameType("Multiplikation", "Alle Aufgaben",MultiplicationAll, renderStars(2), COLOR_HARD))
-        output.push(renderGameType("Division", "Kernaufgaben",DivisionCore, renderStars(1), COLOR_EASY))
-        output.push(renderGameType("Division", "Alle Aufgaben",DivisionAll, renderStars(2), COLOR_HARD))
-        output.push(renderGameType("Mix", "Kernaufgaben",MultiplicationDivisionMixCore, renderStars(1), COLOR_EASY))
-        output.push(renderGameType("Mix", "Alle Aufgaben",MultiplicationDivisionMixAll, renderStars(2), COLOR_HARD))
+        output.push(renderGameType("Multiplikation", "Kernaufgaben",  MultiplicationCore, renderStars(1, ""), COLOR_EASY))
+        output.push(renderGameType("Multiplikation", "Alle Aufgaben",MultiplicationAll, renderStars(2, ""), COLOR_HARD))
+        output.push(renderGameType("Division", "Kernaufgaben",DivisionCore, renderStars(1, ""), COLOR_EASY))
+        output.push(renderGameType("Division", "Alle Aufgaben",DivisionAll, renderStars(2, ""), COLOR_HARD))
+        output.push(renderGameType("Mix", "Kernaufgaben",MultiplicationDivisionMixCore, renderStars(1, ""), COLOR_EASY))
+        output.push(renderGameType("Mix", "Alle Aufgaben",MultiplicationDivisionMixAll, renderStars(2, ""), COLOR_HARD))
         return output;
     }
 
