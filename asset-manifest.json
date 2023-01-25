@@ -1,7 +1,7 @@
 {
   "files": {
-    "app.js": "/schule-rechenmeister/static/js/app.78b945aa.chunk.js",
-    "app.js.map": "/schule-rechenmeister/static/js/app.78b945aa.chunk.js.map",
+    "app.js": "/schule-rechenmeister/static/js/app.8272b276.chunk.js",
+    "app.js.map": "/schule-rechenmeister/static/js/app.8272b276.chunk.js.map",
     "runtime~app.js": "/schule-rechenmeister/static/js/runtime~app.4fc2c8ef.js",
     "runtime~app.js.map": "/schule-rechenmeister/static/js/runtime~app.4fc2c8ef.js.map",
     "static/js/2.2c6fefa2.chunk.js": "/schule-rechenmeister/static/js/2.2c6fefa2.chunk.js",
@@ -27,6 +27,6 @@
   "entrypoints": [
     "static/js/runtime~app.4fc2c8ef.js",
     "static/js/2.2c6fefa2.chunk.js",
-    "static/js/app.78b945aa.chunk.js"
+    "static/js/app.8272b276.chunk.js"
   ]
 }
