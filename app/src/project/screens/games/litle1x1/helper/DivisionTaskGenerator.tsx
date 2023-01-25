@@ -18,7 +18,7 @@ export class DivisionTaskGenerator {
         let multNumber = this.generateNumberFromTo(1, 9);
         let solution = coreRow * multNumber;
 
-        taskWithSolution.task = solution + " % " + coreRow;
+        taskWithSolution.task = solution + " : " + coreRow;
         taskWithSolution.solution = multNumber;
 
         return taskWithSolution;
