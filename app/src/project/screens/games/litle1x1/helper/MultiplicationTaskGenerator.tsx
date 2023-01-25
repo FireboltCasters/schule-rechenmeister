@@ -34,7 +34,7 @@ export class MultiplicationTaskGenerator {
         let secondNumber = this.generateNumberFromTo(1, 10);
         let solution = firstNumber * secondNumber;
 
-        taskWithSolution.task = firstNumber + " * " + secondNumber;
+        taskWithSolution.task = firstNumber + " ⋅ " + secondNumber;
         taskWithSolution.solution = solution;
 
         return taskWithSolution;

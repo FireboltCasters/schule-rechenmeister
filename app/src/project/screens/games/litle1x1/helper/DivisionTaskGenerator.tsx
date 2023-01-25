@@ -34,7 +34,7 @@ export class DivisionTaskGenerator {
         let secondNumber = this.generateNumberFromTo(1, 10);
         let solution = firstNumber * secondNumber;
 
-        taskWithSolution.task = solution + " % " + firstNumber;
+        taskWithSolution.task = solution + " : " + firstNumber;
         taskWithSolution.solution = secondNumber;
 
         return taskWithSolution;
