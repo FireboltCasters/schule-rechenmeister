@@ -57,7 +57,7 @@ export class SubtractionTaskGenerator {
         const solution = firstNumber + secondNumber;
 
         // Reverse the addition task to get the subtraction task
-        taskWithSolution.task = solution + " - " + firstNumber;
+        taskWithSolution.task = solution + " – " + firstNumber;
         taskWithSolution.solution = secondNumber;
 
         return taskWithSolution;

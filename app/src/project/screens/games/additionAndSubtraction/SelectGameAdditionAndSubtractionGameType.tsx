@@ -73,22 +73,22 @@ export const SelectGameAdditionAndSubtractionGameType: FunctionComponent = (prop
     function renderTasks(){
         let output = [];
         if(max+"" === ""+20){
-            output.push(renderGameType("Addition", AdditionWithoutTenTransition, renderStars(1, "einfach"), COLOR_EASY))
-            output.push(renderGameType("Addition", AdditionWithTenTransition, renderStars(2, "schwer"), COLOR_HARD))
-            output.push(renderGameType("Subtraktion", SubtractionWithoutTenTransition, renderStars(1, "einfach"), COLOR_EASY))
-            output.push(renderGameType("Subtraktion", SubtractionWithTenTransition, renderStars(2, "schwer"), COLOR_HARD))
-            output.push(renderGameType("Mix", MixWithoutTenTransition, renderStars(1, "einfach"), COLOR_EASY))
-            output.push(renderGameType("Mix", MixWithTenTransition, renderStars(2, "schwer"), COLOR_HARD))
+            output.push(renderGameType("Addition (+)", AdditionWithoutTenTransition, renderStars(1, "einfach"), COLOR_EASY))
+            output.push(renderGameType("Addition (+)", AdditionWithTenTransition, renderStars(2, "schwer"), COLOR_HARD))
+            output.push(renderGameType("Subtraktion (–)", SubtractionWithoutTenTransition, renderStars(1, "einfach"), COLOR_EASY))
+            output.push(renderGameType("Subtraktion (–)", SubtractionWithTenTransition, renderStars(2, "schwer"), COLOR_HARD))
+            output.push(renderGameType("Mix (+,–)", MixWithoutTenTransition, renderStars(1, "einfach"), COLOR_EASY))
+            output.push(renderGameType("Mix (+,–)", MixWithTenTransition, renderStars(2, "schwer"), COLOR_HARD))
         } else {
-            output.push(renderGameType("Addition", AdditionWithoutTenTransition, renderStars(1, "einfach"), COLOR_EASY))
-            output.push(renderGameType("Addition", AdditionWithTenTransitionSingleNumber, renderStars(2, "mittel"), COLOR_MEDIUM))
-            output.push(renderGameType("Addition", AdditionWithTenTransition, renderStars(3, "schwer"), COLOR_HARD))
-            output.push(renderGameType("Subtraktion", SubtractionWithoutTenTransition, renderStars(1, "einfach"), COLOR_EASY))
-            output.push(renderGameType("Subtraktion", SubtractionWithTenTransitionSingleNumber, renderStars(2, "mittel"), COLOR_MEDIUM))
-            output.push(renderGameType("Subtraktion", SubtractionWithTenTransition, renderStars(3, "schwer"), COLOR_HARD))
-            output.push(renderGameType("Mix", MixWithoutTenTransition, renderStars(1, "einfach"), COLOR_EASY))
-            output.push(renderGameType("Mix", MixWithTenTransitionSingleNumber, renderStars(2, "mittel"), COLOR_MEDIUM))
-            output.push(renderGameType("Mix", MixWithTenTransition, renderStars(3, "schwer"), COLOR_HARD))
+            output.push(renderGameType("Addition (+)", AdditionWithoutTenTransition, renderStars(1, "einfach"), COLOR_EASY))
+            output.push(renderGameType("Addition (+)", AdditionWithTenTransitionSingleNumber, renderStars(2, "mittel"), COLOR_MEDIUM))
+            output.push(renderGameType("Addition (+)", AdditionWithTenTransition, renderStars(3, "schwer"), COLOR_HARD))
+            output.push(renderGameType("Subtraktion (–)", SubtractionWithoutTenTransition, renderStars(1, "einfach"), COLOR_EASY))
+            output.push(renderGameType("Subtraktion (–)", SubtractionWithTenTransitionSingleNumber, renderStars(2, "mittel"), COLOR_MEDIUM))
+            output.push(renderGameType("Subtraktion (–)", SubtractionWithTenTransition, renderStars(3, "schwer"), COLOR_HARD))
+            output.push(renderGameType("Mix (+,–)", MixWithoutTenTransition, renderStars(1, "einfach"), COLOR_EASY))
+            output.push(renderGameType("Mix (+,–)", MixWithTenTransitionSingleNumber, renderStars(2, "mittel"), COLOR_MEDIUM))
+            output.push(renderGameType("Mix (+,–)", MixWithTenTransition, renderStars(3, "schwer"), COLOR_HARD))
         }
         return output;
     }

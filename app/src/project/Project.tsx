@@ -3,7 +3,7 @@ import React from "react";
 import {
 	BaseTemplate, MenuItem, EmptyTemplate,
 	Navigation,
-	PluginInterface,
+	PluginInterface, ThemedMarkdown,
 } from "kitcheningredients";
 
 import {SynchedStateKeys} from "./helper/SynchedStateKeys";
@@ -120,15 +120,41 @@ export default class Project extends PluginInterface{
 	}
 
 	getAboutUsComponent() {
-    return null
+		const markdown = `
+# Über uns
+
+Ich bin Nils Baumgartner und ich habe diese kleine App für Kinder in der Grundschule entwickelt. Viel mehr gibt es nicht zu sagen. Ich wünsche viel Spaß.
+
+Kontakt: nilsbaumgartner1994@gmail.com
+`
+
+    return <ThemedMarkdown>
+		{markdown}
+	</ThemedMarkdown>
 	}
 
 	getPrivacyPolicyComponent() {
-    return null
+		const markdown = `
+# Datenschutz
+
+Diese App speichert lediglich notwendige Cookies um die App zu betreiben. Es werden keine Daten an Dritte weitergegeben. Es werden lediglich die Punkte der Spieler zwischengespeichert und nach jedem neuen Spiel gelöscht. Die Daten werden aber auch nicht weiter gesendet.
+`
+
+		return <ThemedMarkdown>
+			{markdown}
+		</ThemedMarkdown>
 	}
 
 	getTermsAndConditionsComponent() {
-    return null
+		const markdown = `
+# Nutzungsbedingungen
+
+Diese App ist kostenlos und darf ohne Einschränkungen genutzt werden. Es gibt keine Garantie auf Fehlerfreiheit oder sonstige Fehler. Es wird keine Haftung übernommen.
+`
+
+		return <ThemedMarkdown>
+			{markdown}
+		</ThemedMarkdown>
 	}
 
 	getHomeComponent(): any {
