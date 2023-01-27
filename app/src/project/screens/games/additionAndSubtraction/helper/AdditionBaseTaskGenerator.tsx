@@ -62,15 +62,12 @@ export class AdditionBaseTaskGenerator {
             solution: 0
         }
 
-        const maxAsNumber = AdditionBaseTaskGenerator.getMaxNumber(maxNumber);
-        let solution = AdditionBaseTaskGenerator.generateNumberFromTo(10, maxAsNumber);
-        while(solution % 10 === 9) { // avoid 9,19,29,39,49,59,69,79,89,99 since we dont want to have 9+10
-            solution = AdditionBaseTaskGenerator.generateNumberFromTo(10, maxAsNumber);
-        }
+        const solution = AdditionBaseTaskGenerator.generateNumberFromTo(10, maxNumber);
+        const solutionFloorLowerTen = Math.floor(solution/10)*10; // eg. 40
 
-        let firstNumber = AdditionBaseTaskGenerator.generateNumberFromTo(1, solution-1); // -1 because we dont want to have secondNumber 0
-        while(AdditionBaseTaskGenerator.isMultipleOfTen(firstNumber) || !AdditionBaseTaskGenerator.hasTenTransition(solution, firstNumber)) { // we dont want to have firstNumber 10, 20, 30, ...
-            firstNumber = AdditionBaseTaskGenerator.generateNumberFromTo(1, solution-1); // -1 because we dont want to have secondNumber 0
+        let firstNumber = AdditionBaseTaskGenerator.generateNumberFromTo(1, solutionFloorLowerTen-1); // -1 because we dont want to have firstNumber 0
+        while(AdditionBaseTaskGenerator.isMultipleOfTen(firstNumber)) { // dont allow firstNumber to be a multiple of 10
+            firstNumber = AdditionBaseTaskGenerator.generateNumberFromTo(1, solutionFloorLowerTen-1); // -1 because we dont want to have firstNumber 0
         }
 
         let secondNumber = solution - firstNumber;
