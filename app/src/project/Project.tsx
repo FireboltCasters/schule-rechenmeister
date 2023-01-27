@@ -33,6 +33,7 @@ import {DivisionCore} from "./screens/games/litle1x1/DivisionCore";
 import {DivisionAll} from "./screens/games/litle1x1/DivisionAll";
 import {MultiplicationDivisionMixCore} from "./screens/games/litle1x1/MultiplicationDivisionMixCore";
 import {MultiplicationDivisionMixAll} from "./screens/games/litle1x1/MultiplicationDivisionMixAll";
+import {TestDistributionOfTasks} from "./testScreens/TestDistributionOfTasks";
 
 export default class Project extends PluginInterface{
 
@@ -99,8 +100,24 @@ export default class Project extends PluginInterface{
 		  }
 	  });
 
+
+	  let testingRoutes = Navigation.routesRegisterMultipleFromComponents(
+		  [
+			  TestDistributionOfTasks
+		  ],
+		  BaseTemplate
+	  )
+	  let testingMenu = new MenuItem({
+		  key: "testing",
+		  label: "Überprüfung der Gleichverteilung",
+		  command: () => {
+			  Navigation.navigateTo(TestDistributionOfTasks, {key: Math.random()});
+		  }
+	  });
+
 	  Navigation.menuRegister(homeMenu);
 	  Navigation.menuRegister(aufgabenMenu);
+	  Navigation.menuRegister(testingMenu);
 	}
 
 	async initApp() {
