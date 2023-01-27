@@ -62,15 +62,27 @@ export class AdditionBaseTaskGenerator {
             solution: 0
         }
 
-        const solution = AdditionBaseTaskGenerator.generateNumberFromTo(10, maxNumber);
-        const solutionFloorLowerTen = Math.floor(solution/10)*10; // eg. 40
+        let maxAsNumber = AdditionBaseTaskGenerator.getMaxNumber(maxNumber);
 
-        let firstNumber = AdditionBaseTaskGenerator.generateNumberFromTo(1, solutionFloorLowerTen-1); // -1 because we dont want to have firstNumber 0
-        while(AdditionBaseTaskGenerator.isMultipleOfTen(firstNumber)) { // dont allow firstNumber to be a multiple of 10
-            firstNumber = AdditionBaseTaskGenerator.generateNumberFromTo(1, solutionFloorLowerTen-1); // -1 because we dont want to have firstNumber 0
+        /**
+         * Scheint alles gleich wahrscheinlich zu sein, sowohl Lösung als auch einzelne Zahlen
+         */
+
+        let firstNumber = AdditionBaseTaskGenerator.generateNumberFromTo(1, maxAsNumber-1); // -1 because we dont want to have firstNumber 0
+        let secondNumber = AdditionBaseTaskGenerator.generateNumberFromTo(1, maxAsNumber-1);
+        let firstNumberOne = firstNumber % 10;
+        let secondNumberOne = secondNumber % 10;
+        while(AdditionBaseTaskGenerator.isMultipleOfTen(firstNumber) || AdditionBaseTaskGenerator.isMultipleOfTen(secondNumber) || firstNumberOne+secondNumberOne < 10 || firstNumber+secondNumber > maxAsNumber) {
+            firstNumber = AdditionBaseTaskGenerator.generateNumberFromTo(1, maxAsNumber-1); // -1 because we dont want to have firstNumber 0
+            secondNumber = AdditionBaseTaskGenerator.generateNumberFromTo(1, maxAsNumber-1);
+            firstNumberOne = firstNumber % 10;
+            secondNumberOne = secondNumber % 10;
         }
+        const solution = firstNumber + secondNumber;
 
-        let secondNumber = solution - firstNumber;
+
+
+
 
         const higherNumber = firstNumber > secondNumber ? firstNumber : secondNumber;
         const lowerNumber = firstNumber > secondNumber ? secondNumber : firstNumber;
@@ -91,7 +103,9 @@ export class AdditionBaseTaskGenerator {
             solution: 0
         }
 
-        let solution = AdditionBaseTaskGenerator.generateNumberFromTo(10, maxNumber);
+        let maxAsNumber = AdditionBaseTaskGenerator.getMaxNumber(maxNumber);
+
+        let solution = AdditionBaseTaskGenerator.generateNumberFromTo(10, maxAsNumber);
         let secondNumber = AdditionBaseTaskGenerator.generateNumberFromTo(1, 9); // -1 because we dont want to have secondNumber 0
         let firstNumber = solution - secondNumber;
 
