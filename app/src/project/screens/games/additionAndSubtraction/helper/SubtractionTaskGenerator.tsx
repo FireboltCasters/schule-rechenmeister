@@ -6,8 +6,8 @@ export class SubtractionTaskGenerator {
     static generateWithoutTenTransition(maxNumber: any) {
         let baseTask = AdditionBaseTaskGenerator.generateWithoutTenTransition(maxNumber);
         let taskWithSolution = {
-            task: baseTask.solution + " - " + baseTask.higherNumber,
-            solution: baseTask.lowerNumber
+            task: baseTask.solution + " - " + baseTask.lowerNumber,
+            solution: baseTask.higherNumber
         }
 
         return taskWithSolution;
@@ -17,8 +17,8 @@ export class SubtractionTaskGenerator {
         let baseTask = AdditionBaseTaskGenerator.generateWithTenTransition(maxNumber);
 
         let taskWithSolution = {
-            task: baseTask.solution + " - " + baseTask.higherNumber,
-            solution: baseTask.lowerNumber
+            task: baseTask.solution + " - " + baseTask.lowerNumber,
+            solution: baseTask.higherNumber
         }
 
         return taskWithSolution;
@@ -28,8 +28,8 @@ export class SubtractionTaskGenerator {
         let baseTask = AdditionBaseTaskGenerator.generateWithTenTransitionSingleNumber(maxNumber);
 
         let taskWithSolution = {
-            task: baseTask.solution + " - " + baseTask.higherNumber,
-            solution: baseTask.lowerNumber
+            task: baseTask.solution + " - " + baseTask.lowerNumber,
+            solution: baseTask.higherNumber
         }
 
         return taskWithSolution;
