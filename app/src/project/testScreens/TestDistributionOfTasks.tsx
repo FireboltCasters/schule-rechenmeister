@@ -67,6 +67,9 @@ export const TestDistributionOfTasks: FunctionComponent = (props) => {
                 secondValue++;
                 matrix[secondKey] = secondValue;
             }
+            if(i%1000 === 0){
+                setMatrix(matrix);
+            }
 
         }
         setMatrix(matrix);
