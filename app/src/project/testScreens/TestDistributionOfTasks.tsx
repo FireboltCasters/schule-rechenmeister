@@ -11,6 +11,7 @@ export const TestDistributionOfTasks: FunctionComponent = (props) => {
     const ENDING_COUNTER = 100;
     const AMOUNT_OF_TASKS_PER_KEY = 10000;
     const AMOUNT_OF_TASKS = ENDING_COUNTER*AMOUNT_OF_TASKS_PER_KEY;
+    const [whatToTest, setWhatToTest] = useState("Lösungswerte");
 
     function getInitialMatrix(){
         let initialMatrix = {};
@@ -47,7 +48,7 @@ export const TestDistributionOfTasks: FunctionComponent = (props) => {
         let initialTasks = [];
         for(let i=0; i<AMOUNT_OF_TASKS; i++){
             let baseTask = func(ENDING_COUNTER)
-            if(initialTasks.length < 1000){
+            if(initialTasks.length < 100){
                 initialTasks.push(<View key={i+""}><Text>{baseTask?.higherNumber+" ? "+baseTask?.lowerNumber+" = "+baseTask?.solution}</Text></View>);
             }
             let key = baseTask[fieldName]+"";
@@ -72,6 +73,7 @@ export const TestDistributionOfTasks: FunctionComponent = (props) => {
         <Text>{"Es werden "+AMOUNT_OF_TASKS+" Aufgaben generiert, sogesehen "+AMOUNT_OF_TASKS_PER_KEY+" pro Zahl"}</Text>
 
         <Button onPress={() => {
+            setWhatToTest("Lösungswerte");
             checkDistributionForFunction(AdditionBaseTaskGenerator.generateWithoutTenTransition, "solution");
         }}>
             <Text>{"Test Lösung: Addition ohne Zehnerübergang"}</Text>
@@ -79,6 +81,7 @@ export const TestDistributionOfTasks: FunctionComponent = (props) => {
         </Button>
         <MySpacer/>
         <Button onPress={() => {
+            setWhatToTest("Lösungswerte");
             checkDistributionForFunction(AdditionBaseTaskGenerator.generateWithTenTransitionSingleNumber, "solution");
         }}>
             <Text>{"Test Lösung: Addition mit einfachen Zehnerübergang"}</Text>
@@ -86,6 +89,7 @@ export const TestDistributionOfTasks: FunctionComponent = (props) => {
         </Button>
         <MySpacer/>
         <Button onPress={() => {
+            setWhatToTest("Lösungswerte");
             checkDistributionForFunction(AdditionBaseTaskGenerator.generateWithTenTransition, "solution");
         }}>
             <Text>{"Test Lösung: Addition mit allen Zehnerübergängen"}</Text>
@@ -93,20 +97,30 @@ export const TestDistributionOfTasks: FunctionComponent = (props) => {
         </Button>
         <MySpacer/>
         <Button onPress={() => {
-            checkDistributionForFunction(AdditionBaseTaskGenerator.generateWithoutTenTransition, "firstNumber", "secondNumber");
+            setWhatToTest("Des 1. und 2. Wert");
+            checkDistributionForFunction(AdditionBaseTaskGenerator.generateWithoutTenTransition, "higherNumber", "lowerNumber");
         }}>
             <Text>{"Test größere Zahl: Addition ohne Zehnerübergang"}</Text>
             <Text>{"Es sollte zu sehen sein: Eine 'Treppe'"}</Text>
         </Button>
         <MySpacer/>
         <Button onPress={() => {
-            checkDistributionForFunction(AdditionBaseTaskGenerator.generateWithTenTransitionSingleNumber, "higherNumber", "lowerNumber");
+            setWhatToTest("Des 1. Wert");
+            checkDistributionForFunction(AdditionBaseTaskGenerator.generateWithTenTransitionSingleNumber, "firstNumber");
         }}>
             <Text>{"Test größere Zahl: Addition mit einfachen Zehnerübergang"}</Text>
-            <Text>{"Es sollte zu sehen sein: 0-9 nichts, und alle 9er leer, sonst gleichverteilt"}</Text>
+            <Text>{"Es sollte zu sehen sein: "}</Text>
+        </Button>
+        <Button onPress={() => {
+            setWhatToTest("Des 2. Wert");
+            checkDistributionForFunction(AdditionBaseTaskGenerator.generateWithTenTransitionSingleNumber, "secondNumber");
+        }}>
+            <Text>{"Test kleinere Zahl: Addition mit einfachen Zehnerübergang"}</Text>
+            <Text>{"Es sollte zu sehen sein: "}</Text>
         </Button>
         <MySpacer/>
         <Button onPress={() => {
+            setWhatToTest("Des 1. und 2. Wert");
             checkDistributionForFunction(AdditionBaseTaskGenerator.generateWithTenTransition, "higherNumber", "lowerNumber");
         }}>
             <Text>{"Test größere Zahl: Addition mit allen Zehnerübergängen"}</Text>
@@ -115,7 +129,7 @@ export const TestDistributionOfTasks: FunctionComponent = (props) => {
         <MySpacer/>
 
 
-        <Text>{"Ergebnisse"}</Text>
+        <Text>{"Angezeigt wird die Verteilung der: "+whatToTest}</Text>
         <View style={{width: "100%"}}>
             {renderMatrix()}
         </View>
