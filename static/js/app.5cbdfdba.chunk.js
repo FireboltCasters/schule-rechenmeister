@@ -134,7 +134,7 @@ var Text = __webpack_require__(95);
 // CONCATENATED MODULE: ./src/project/MyLoading.tsx
 var MyLoading_MyLoading=function MyLoading(props){console.log("MyLoading");return react_default.a.createElement(View["a" /* View */],null,react_default.a.createElement(Text["a" /* default */],null,"MyLoading"));};
 // CONCATENATED MODULE: ./src/project/MyRoot.tsx
-var MyRoot_MyRoot=function MyRoot(props){var _useSynchedJSONState=Object(lib_module["p" /* useSynchedJSONState */])(lib_module["n" /* RequiredSynchedStates */].navigationHistory),_useSynchedJSONState2=slicedToArray_default()(_useSynchedJSONState,2),navigationHistory=_useSynchedJSONState2[0],setNavigationHistory=_useSynchedJSONState2[1];return react_default.a.createElement(View["a" /* View */],null);};
+var MyRoot_MyRoot=function MyRoot(props){var _useSynchedJSONState=Object(lib_module["p" /* useSynchedJSONState */])(lib_module["n" /* RequiredSynchedStates */].navigationHistory),_useSynchedJSONState2=slicedToArray_default()(_useSynchedJSONState,2),navigationHistory=_useSynchedJSONState2[0],setNavigationHistory=_useSynchedJSONState2[1];return react_default.a.createElement(View["a" /* View */],{style:{visibility:"hidden"}},react_default.a.createElement("a",{href:"[https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2FFireboltCasters%2Fschule-rechenmeister](https://github.com/FireboltCasters/schule-rechenmeister)"},react_default.a.createElement("img",{src:"https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FFireboltCasters%2Fschule-rechenmeister&label=Besucher&countColor=%23263759"})));};
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
 var defineProperty = __webpack_require__(2);
 var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
@@ -295,4 +295,4 @@ lib_module["c" /* ConfigHolder */].storage=new lib_module["j" /* MyDirectusStora
 /***/ })
 
 },[[524,1,2]]]);
-//# sourceMappingURL=app.a8bc36d8.chunk.js.map
+//# sourceMappingURL=app.5cbdfdba.chunk.js.map
